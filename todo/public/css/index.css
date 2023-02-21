@@ -2,7 +2,21 @@ html{
     font-size: 8px;
 }
 
+.content{
+    display: flex;
+    flex-direction: column;    
+    margin-top: 2.5rem;
+    padding-left: 1.5rem;
+}
+.content-title{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 3.75rem;
+    margin-bottom: 0.25rem;
+
+}
 .content-body{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    margin-top: 1rem;
+    padding-left: 1.5rem;
 }
