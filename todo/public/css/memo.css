@@ -1,0 +1,10 @@
+#memo-form{
+    width: 100%;
+    height: 720px;
+    
+}
+
+#memo-form input{
+    width: 100%;
+    height: 100%;    
+}
