@@ -1,0 +1,11 @@
+.list{
+    display: flex;    
+    list-style:none;
+}
+.item{    
+    text-align: center;
+    margin-right: 1rem;
+    background-color: antiquewhite;
+    height: 20rem;
+    width: 10rem;
+}
