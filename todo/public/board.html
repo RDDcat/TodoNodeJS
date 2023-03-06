@@ -82,10 +82,10 @@
         const index = [...obj.parentNode.children].indexOf(obj);
 
         if(pickedIndex> index){
-            e.target.before(picked);            
+            obj.before(picked);            
         }
         if(pickedIndex< index){
-            e.target.after(picked);  
+            obj.after(picked);  
         }
     })
 
