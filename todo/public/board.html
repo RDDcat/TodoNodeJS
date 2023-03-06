@@ -48,11 +48,11 @@
             <hr>
             <div class="content-body">
                 <ul class="list">
-                    <li class="item" draggable="true">a</li>    
-                    <li class="item" draggable="true">P</li>    
-                    <li class="item" draggable="true">P</li>    
-                    <li class="item" draggable="true">P</li>    
-                    <li class="item" draggable="true">P</li>    
+                    <li class="item" draggable="true">1</li>    
+                    <li class="item" draggable="true">2</li>    
+                    <li class="item" draggable="true">3</li>    
+                    <li class="item" draggable="true">4</li>    
+                    <li class="item" draggable="true">5</li>    
                 </ul>
 
             </div>
@@ -65,17 +65,28 @@
     
     // dragstart, dragover, drag 로 이벤트 구분
     let picked = null;
+    let pickedIndex = null;
     list.addEventListener("dragstart", (e)=>{
-        picked = e.target;
+        const obj = e.target;
+        picked = obj;
+        pickedIndex = [...obj.parentNode.children].indexOf(obj);
+
     })
 
     list.addEventListener("dragover", (e)=>{
         e.preventDefault();
-
     })
 
     list.addEventListener("drop", (e)=>{
-        e.target.before(picked);
+        const obj = e.target;        
+        const index = [...obj.parentNode.children].indexOf(obj);
+
+        if(pickedIndex> index){
+            e.target.before(picked);            
+        }
+        if(pickedIndex< index){
+            e.target.after(picked);  
+        }
     })
 
 
