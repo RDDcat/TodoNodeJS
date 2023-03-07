@@ -8,12 +8,19 @@
     background-color: antiquewhite;
     height: 40rem;
     width: 22rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .modal-memo-content{
     width: 100%;
     background-color: antiquewhite;
     padding: 5rem;
+    border-radius: 2rem;
+}
+
+.modal-memo{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     margin: 2rem;
     border-radius: 2rem;
 }
