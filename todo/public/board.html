@@ -60,6 +60,13 @@
     </div>
 </div>
 
+<div class="modal-memo">
+    <div class="modal-memo-content">
+        <h3>제목</h3>
+        <p>내용</p>
+    </div>
+</div>
+
 <script>
     const list = document.querySelector(".list");
     
@@ -88,6 +95,18 @@
             obj.after(picked);  
         }
     })
+
+    // 클릭이벤트
+    let items = document.querySelectorAll(".item");
+    console.log(items);
+    items.forEach((item)=> item.addEventListener("click", function(){
+        ClickMemo(item);
+    })
+    );
+
+    function ClickMemo(item){		
+        console.log(item);
+    };      
 
 
 </script>

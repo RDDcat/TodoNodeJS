@@ -9,3 +9,11 @@
     height: 40rem;
     width: 22rem;
 }
+
+.modal-memo-content{
+    width: 100%;
+    background-color: antiquewhite;
+    padding: 5rem;
+    margin: 2rem;
+    border-radius: 2rem;
+}
