@@ -3,13 +3,29 @@
     flex-direction: column;    
 }
 
-.todo-list .todo-list-box{
+.todo-list .todo-list-box{    
+    display: flex;
+    flex-direction: row;    
     background-color: antiquewhite;
     width: 100%;
     height: 100%;
     margin-top: 0.5rem;
-    padding: 1.5rem;
     border-radius: 1rem;
+}
+
+.todo-list .todo-list-box .todo-list-content{
+    width: 96%;
+    padding: 1.5rem;
+}
+
+.todo-list-btn{
+    display: flex;
+    flex-direction: row;   
+}
+
+.todo-list-btn .icon{    
+    flex: 1;       
+    padding: 1.5rem;
 }
 
 .todo-log{
