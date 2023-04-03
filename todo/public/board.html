@@ -93,22 +93,15 @@
             obj.after(picked);  
         }
     })
-
-    // 클릭이벤트
-    let items = document.querySelectorAll(".item");
-    console.log(items);
-    items.forEach((item)=> item.addEventListener("click", function(){
-        ClickMemo(item);
-    })
-    );
+    
     // modal_overlay.addEventListener("click", function(){
     //         console.log("오버레이 클릭");
     //         modal_memo.classList.add("hidden");            
     // });
 
-    function ClickMemo(item){		
-        modal_memo.classList.remove("hidden");
-        
+    function ClickMemo(item){
+        console.log("item : " + item);
+        modal_memo.classList.remove("hidden");        
     }; 
     
 

@@ -2,13 +2,15 @@ const todo_list = document.querySelector(".list");
 
 
 async function setUpBoard(){
-    console.log("setUpTodoList 중");
+    console.log("setUpBoard 시작");
 
     // JSON 데이터 서버에서 가져옴
     var data = await getJSONData();
 
     // 가져온 데이터로 형식에 맞추어 todo_list 밑에 붙여넣음
     await setUp(data);
+
+    console.log("setUpBoard 끝");
 
 }
 
@@ -29,7 +31,13 @@ function setUp(data){
         todo_list.appendChild(temp);
     }
     
-    
+    // 클릭이벤트
+    let items = document.querySelectorAll(".item");
+    console.log("items" + items);
+    items.forEach((item)=> item.addEventListener("click", function(){
+        ClickMemo(item);
+    })
+    );
 }
 
 
