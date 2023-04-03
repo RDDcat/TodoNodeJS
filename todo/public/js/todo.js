@@ -1,7 +1,3 @@
-function saveMemo(){
-    alert("save");
-}
-
 
 const todo_list = document.querySelector(".todo-list");
 
@@ -18,10 +14,14 @@ async function setUpTodoList(){
 }
 
 async function getJSONData() {
-    const response = await fetch("http://127.0.0.1:8000/previewCashBoard");
-    console.log(response);
-    const jsonData = await response.json();
-    console.log(jsonData);
+    var flag = true;
+    const response = await fetch("")
+    .catch(() => {
+        flag = false;
+    });
+    if(flag){
+        const jsonData = await response.json();
+    }
     return jsonData;
 }
 
@@ -48,5 +48,3 @@ function setUp(data){
 
 
 
-
-setUpTodoList();

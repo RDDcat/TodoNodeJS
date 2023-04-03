@@ -1,15 +1,31 @@
 .list{
     display: flex;    
+    flex-wrap : wrap;
     list-style:none;
 }
 .item{    
     text-align: center;
-    margin-right: 1rem;
-    background-color: antiquewhite;
+    margin: 0.5rem;
+    background-color:  rgb(230, 233, 253);
     height: 40rem;
     width: 22rem;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.item:hover {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    animation-name: item-hover;
+    animation-duration: 0.25s;
+    border-left: 1rem solid ;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.18);
+}
+
+@keyframes item-hover {
+    0%   {border-left: 0.25rem solid #ffffff;}
+    25%  {border-left: 0.5rem solid #c8c8ce;}
+    50%  {border-left: 0.75rem solid #7d7d81;}
+    100% {border-left: 1rem solid #484849;}
 }
 
 .content-body{    
