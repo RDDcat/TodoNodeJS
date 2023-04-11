@@ -1,5 +1,6 @@
 const todo_list = document.querySelector(".list");
 const modal_memo = document.querySelector(".modal-memo");
+const modal_update = document.querySelector(".modal-update");
 const modal_overlay = document.querySelector(".modal-overlay");
 const modal_title = document.querySelector(".modal-title");
 const modal_body = document.querySelector(".modal-body");
@@ -79,6 +80,26 @@ async function showMemo(item){
 setUpBoard();
 
 
-function updateBoard(icon){
-    console.log("update");
+function updateBoard(e){
+    console.log("updateBoard");
+    modal_update.classList.remove("hidden");
+    modal_memo.classList.add("hidden");
+}
+function submitUpdate(e){
+    console.log("submitUpdate");
+    // modal_title.innerHTML = document.getElementById('myText').value;
+
+    modal_update.classList.add("hidden");      
+    modal_memo.classList.remove("hidden");
+
+
+
+    // 백엔드에 데이터 업데이트
+
+    
+}
+
+function addText()
+{
+    
 }

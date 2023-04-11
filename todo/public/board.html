@@ -50,14 +50,29 @@
             </div>            
             <hr>            
             <div class="content-body">
-                <!-- 모달 -->
+                <!-- 모달 1 -->
                 <div class="modal-memo hidden">                     
                     <div class="modal-memo-content">
-                        <div class="icon" onclick="updateBoard(this);">
-                            <i class="fa fa-solid fa-pen"></i>
-                        </div>  
+                        <div class="icons">
+                            <div class="icon" onclick="updateBoard(this);">
+                                <i class="fa fa-solid fa-pen"></i>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>             
+                        </div>           
                         <h3 class="modal-title">제목</h3>
                         <p class="modal-body">내용</p>
+                    </div>
+                </div>
+                <!-- 모달 2 -->
+                <div class="modal-update hidden">
+                    <div class="modal-memo-content switch">
+                        <div class="icon" onclick="submitUpdate(this);">
+                            <i class="fa fa-solid fa-pen"></i>
+                        </div>  
+                        <input class="modal-title">제목</h3>
+                        <input class="modal-body">내용</p>
                     </div>
                 </div>
                 <!-- 메모 리스트 -->     

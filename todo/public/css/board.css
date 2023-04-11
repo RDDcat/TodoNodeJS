@@ -49,9 +49,31 @@
     padding: 5rem;
     border-radius: 2rem;
 }
+.modal-update{
+    width: 98%;
+    height: 98%;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.modal-memo-content{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(230, 233, 253);
+    padding: 5rem;
+    border-radius: 2rem;
+}
+
 
 .hidden{
     display: none;
+}
+
+.icons {
+    flex: auto;
 }
 
 .icon {
