@@ -50,30 +50,8 @@
             </div>
             <hr>   
             <div class="content-body">
-                <div class="todo-list">    
-                    <div class="todo-list-box" draggable="true">
-                        <div class="todo-list-content">
-                            샘플 데이터 1
-                        </div>
-                        <div class="todo-list-btn">
-                            <i class="icon fa-solid fa-check"></i>
-                            <i class="icon fa-solid fa-trash-can"></i>
-                        </div>
-                    </div>
-                    <div class="todo-list-add-box">
-                        <div class="todo-list-content">
-                            <label for="inp" class="inp">
-                                <input type="text" id="inp" placeholder="&nbsp;">
-                                <span class="label">할일</span>
-                                <span class="focus-bg"></span>
-                            </label>                            
-                        </div>
-                        <div class="todo-list-btn">
-                            <i class="icon fa-solid fa-plus"></i>
-                        </div>
-                    </div>
+                <div class="todo-list"> 
                 </div>
-
                 <div class="middle-line">
                     <hr><!-- 중앙 분리선 -->
                 </div> 
@@ -102,40 +80,5 @@
     </div>
 </div>
 <script type="text/javascript" src="js/todo.js"></script>
-
-<script>
-    // const todo_list_box = document.querySelectorAll(".todo-list-box");
-
-    // // dragstart, dragover, drag 로 이벤트 구분
-    // let todo_picked = null;
-    // let todo_pickedIndex = null;
-    // todo_list_box.forEach(box => {
-    //         box.addEventListener("dragstart", (e)=>{
-    //         const obj = e.target;
-    //         todo_picked = obj;
-    //         todo_pickedIndex = [...obj.parentNode.children].indexOf(obj);
-    //         });
-        
-    //     })
-
-    // todo_list_box.addEventListener("dragover", (e)=>{
-    //     e.preventDefault();
-    // })
-
-    // todo_list_box.addEventListener("drop", (e)=>{
-    //     const obj = e.target;   
-    //     console.log(e);
-    //     const index = [...obj.parentNode.children].indexOf(obj);
-
-    //     if(todo_pickedIndex> index){
-    //         obj.before(todo_picked);
-    //     }
-    //     if(todo_pickedIndex< index){
-    //         obj.after(todo_picked);  
-    //     }
-    // })
-
-
-</script>
 
 </body>
