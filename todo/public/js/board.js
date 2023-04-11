@@ -77,3 +77,8 @@ async function showMemo(item){
 
 
 setUpBoard();
+
+
+function updateBoard(icon){
+    console.log("update");
+}
