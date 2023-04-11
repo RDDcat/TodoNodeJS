@@ -114,6 +114,12 @@ function makeDraggable(element) {
     // Define the dragstart event listener to set the data transfer
     element.addEventListener('dragstart', (event) => {
         event.dataTransfer.setData('text/plain', event.target.id);
+        event.target.style.opacity = "0.4";
+    });
+
+    element.addEventListener('dragend', (event) => {
+        event.dataTransfer.setData('text/plain', event.target.id);
+        event.target.style.opacity = "1";
     });
 }
 
