@@ -19,7 +19,7 @@ async function setUpBoard(){
 }
 
 async function getJSONData() {
-    const response = await fetch("http://127.0.0.1:8000/previewCashBoard");
+    const response = await fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewCashBoard");
     const jsonData = await response.json();
     return jsonData;
 }
@@ -55,7 +55,7 @@ async function showMemo(item){
     console.log("item : " + item.id); 
 
     // 데이터 가져옴
-    var url = new URL('http://127.0.0.1:8000/detailBoard');
+    var url = new URL('http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/detailBoard');
     var params = { id: item.id };
     url.search = new URLSearchParams(params).toString();
 
@@ -67,7 +67,7 @@ async function showMemo(item){
     });
     console.log('responseDetail : ', responseDetail);
 
-    modal_title.innerHTML = responseDetail.id;
+    modal_title.innerHTML = responseDetail.title;
     modal_body.innerHTML = responseDetail.content;
 
     // 보이기
