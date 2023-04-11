@@ -4,7 +4,12 @@
     
 }
 
-#memo-form input{
+#memo-form #memo-form-title{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#memo-form #memo-form-body{
     width: 100%;
     height: 100%;    
 }
