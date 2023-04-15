@@ -45,9 +45,10 @@ async function setUp(data){
 
         const check_icon = temp.querySelector('.fa-check');
         const trash_icon = temp.querySelector('.fa-trash-can');
+        console.log("check clicked : ", data[i].id);
         check_icon.addEventListener("click", (event) => {
             // your code to handle the click event for the check icon
-            console.log("check clicked");
+            console.log("check clicked : ", data[i]);
         });
         trash_icon.addEventListener("click", (event) => {
             // your code to handle the click event for the trash icon
