@@ -78,6 +78,7 @@ async function setUp(data){
     const inpText = document.getElementById('inp');
 
     plus_icon.addEventListener("click", (event) => {
+        // + 버튼 클릭시
         console.log("plus clicked " + inpText);
         my_var = 
             '    <div class="todo-list-content">'+
@@ -94,7 +95,17 @@ async function setUp(data){
         temp.innerHTML = my_var;
         todo_list.appendChild(temp);
 
-    });
+        var data = {content: inpText.value };
+
+        fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todo", {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        });
 
     todoListBoxes = document.querySelectorAll('.todo-list-box');
     
@@ -103,6 +114,11 @@ async function setUp(data){
         makeDraggable(element);
         makeDroppable(element);
     });
+
+    // 히스토리 셋업
+
+    
+
 }
 
 async function deleteTodo(id){
