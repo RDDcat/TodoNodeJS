@@ -59,11 +59,11 @@ async function setUp(data){
         });
     }
     my_var = '<div class="todo-list-content">'+
-'                            <label for="inp" class="inp">'+
-'                                <input type="text" id="inp" placeholder="&nbsp;">'+
-'                                <span class="label">할일</span>'+
-'                                <span class="focus-bg"></span>'+
-'                            </label>'+
+'                        <label for="inp" class="inp">'+
+'                            <input type="text" id="inp" placeholder="&nbsp;">'+
+'                            <span class="label">할일</span>'+
+'                            <span class="focus-bg"></span>'+
+'                        </label>'+
 '                        </div>'+
 '                        <div class="todo-list-btn">'+
 '                            <i class="icon fa-solid fa-plus"></i>'+
@@ -75,9 +75,25 @@ async function setUp(data){
     todo_list.appendChild(temp);
 
     const plus_icon = temp.querySelector('.fa-plus');
+    const inpText = document.getElementById('inp');
+
     plus_icon.addEventListener("click", (event) => {
-        // your code to handle the click event for the plus icon
-        console.log("plus clicked");
+        console.log("plus clicked " + inpText);
+        my_var = 
+            '    <div class="todo-list-content">'+
+                inpText.value +
+            '    </div>'+
+            '    <div class="todo-list-btn" id="">'+
+            '        <i class="icon fa-solid fa-check"></i>'+
+            '        <i class="icon fa-solid fa-trash-can"></i>'+
+            '    </div>'
+
+        var temp = document.createElement("div");
+        temp.className = "todo-list-box";
+        temp.draggable = true;
+        temp.innerHTML = my_var;
+        todo_list.appendChild(temp);
+
     });
 
     todoListBoxes = document.querySelectorAll('.todo-list-box');
