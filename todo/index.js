@@ -30,19 +30,29 @@ app.get('/test/get', (req, res, next) => {
 })
 
 app.get('/test/post', (req, res, next) => {
-    axios({
-        url: 'http://127.0.0.1:8000/detailBoard',
-        method: 'post',
-        data: {
-            id: '56313319'
-        }
+    axios.post('http://18.183.199.196:8000/backend-service/store/',
+    {
+        userId : 3,
+        storageId : 20
     })
-    .then(function a(response) { 
-        console.log(response) 
+    .then((res)=>{
+        console.log(res)
     })
-    .catch(function (error) {
-        console.log(error);
-    });
+    // axios({
+    //     url: 'http://18.183.199.196:8000/backend-service/user/history/detail',
+    //     method: 'post',
+    //     data: {
+    //         storeId : "",
+    //         orderId : "2",
+    //         deliveryId : ""
+    //     }
+    // })
+    // .then(function a(response) { 
+    //     console.log(response) 
+    // })
+    // .catch(function (error) {
+    //     console.log(error);
+    // });
 })
 
 app.use(express.static(path.join(__dirname, 'public')));

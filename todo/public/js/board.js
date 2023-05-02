@@ -103,3 +103,10 @@ function addText()
 {
     
 }
+
+
+function closeBoard()
+{
+    console.log("헤으응");
+    modal_memo.classList.add("hidden");    
+}
