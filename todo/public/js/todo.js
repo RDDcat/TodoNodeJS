@@ -1,4 +1,4 @@
-
+const todo_log = document.querySelector(".todo-log");
 const todo_list = document.querySelector(".todo-list");
 let todoListBoxes;
 
@@ -105,7 +105,7 @@ async function setUp(data){
         body: JSON.stringify(data)
         })
         .then(response => response.json())
-        });
+    });
 
     todoListBoxes = document.querySelectorAll('.todo-list-box');
     
@@ -116,8 +116,17 @@ async function setUp(data){
     });
 
     // 히스토리 셋업
-
-    
+    var my_var =   '<div class="todo-log-content">'+
+                                '    히스토리 박스 js'+
+                                '</div>'+
+                                '<div class="todo-log-btn">'+
+                                '    <i class="icon fa-solid fa-trash-can"></i>'+
+                                '</div>';
+    var temp = document.createElement("div");
+    temp.className = "todo-log-box";    
+    temp.innerHTML = my_var;
+    temp.draggable = true;
+    todo_log.appendChild(temp);
 
 }
 
