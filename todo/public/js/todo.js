@@ -46,8 +46,22 @@ async function setUpHistory(history_data){
         // 히스토리 휴지통 버튼
         const trash_can = temp.querySelector('.fa-trash-can');
         trash_can.addEventListener("click", (event) => {
-            console.log("trash bin clicked");
+            const id = event.target.closest('.todo-log-box').id;
+            console.log("trash bin clicked : ", id);            
+            var data = {id: id};
 
+            fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodoDelete", {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+            
+            event.target.closest(".todo-log-box").remove();
         });
     }
 }
