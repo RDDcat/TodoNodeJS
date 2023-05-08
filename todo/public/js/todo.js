@@ -7,15 +7,17 @@ async function setUpTodoList(){
     console.log("setUpTodoList 중");
 
     // JSON 데이터 서버에서 가져옴
-    var data = await getJSONData();
+    var data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewTodo");
+    var history_data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewFinishTodo");
 
     // 가져온 데이터로 형식에 맞추어 todo_list 밑에 붙여넣음
     await setUp(data);
+    await setUpHistory(history_data);
 }
 
-async function getJSONData() {
+async function getJSONData(url) {
     var flag = true;
-    const response = await fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewTodo")
+    const response = await fetch(url)
     .catch(() => {
         flag = false;
     });
@@ -25,6 +27,30 @@ async function getJSONData() {
     }
 }
 
+async function setUpHistory(history_data){
+    // 히스토리 셋업
+    for(var i =0; i < history_data.length; i++){
+        var my_var =   '<div class="todo-log-content">'+
+                        '    히스토리 박스 js'+
+                        '</div>'+
+                        '<div class="todo-log-btn">'+
+                        '    <i class="icon fa-solid fa-trash-can"></i>'+
+                        '</div>';
+        var temp = document.createElement("div");
+        temp.className = "todo-log-box";    
+        temp.innerHTML = my_var;
+        temp.draggable = true;
+        temp.id = history_data[i].id
+        todo_log.appendChild(temp);
+
+        // 히스토리 휴지통 버튼
+        const trash_can = temp.querySelector('.fa-trash-can');
+        trash_can.addEventListener("click", (event) => {
+            console.log("trash bin clicked");
+
+        });
+    }
+}
 async function setUp(data){
     console.log("setUP : "+ data.length);
     for(var i =0; i < data.length; i++){
@@ -39,7 +65,7 @@ async function setUp(data){
         var temp = document.createElement("div");
         temp.className = "todo-list-box";
         temp.draggable = true;
-        temp.innerHTML = my_var;        
+        temp.innerHTML = my_var;
         temp.id = data[i].id;
         todo_list.appendChild(temp);
 
@@ -47,17 +73,31 @@ async function setUp(data){
         const trash_icon = temp.querySelector('.fa-trash-can');
         console.log("check clicked : ", data[i].id);
         check_icon.addEventListener("click", (event) => {
-            // your code to handle the click event for the check icon
-            console.log("check clicked : ", data[i]);
+            // 투두 체크 버튼
+            console.log("check clicked : ", event.target.closest('.todo-list-btn').id);
+
+            var data = {id: event.target.closest('.todo-list-btn').id};
+            console.log("data clicked : ", data);
+            fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodo", {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
         });
         trash_icon.addEventListener("click", (event) => {
-            // your code to handle the click event for the trash icon
+            // 투두 휴지통 버튼
             const id = event.target.closest('.todo-list-btn').id;
             deleteTodo(id);
 
             event.target.closest(".todo-list-box").remove();
         });
     }
+
+
+    // 할일 추가 셋업
     my_var = '<div class="todo-list-content">'+
 '                        <label for="inp" class="inp">'+
 '                            <input type="text" id="inp" placeholder="&nbsp;">'+
@@ -98,11 +138,11 @@ async function setUp(data){
         var data = {content: inpText.value };
 
         fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todo", {
-        headers: {
-            "Content-Type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify(data)
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify(data)
         })
         .then(response => response.json())
     });
@@ -115,19 +155,7 @@ async function setUp(data){
         makeDroppable(element);
     });
 
-    // 히스토리 셋업
-    var my_var =   '<div class="todo-log-content">'+
-                                '    히스토리 박스 js'+
-                                '</div>'+
-                                '<div class="todo-log-btn">'+
-                                '    <i class="icon fa-solid fa-trash-can"></i>'+
-                                '</div>';
-    var temp = document.createElement("div");
-    temp.className = "todo-log-box";    
-    temp.innerHTML = my_var;
-    temp.draggable = true;
-    todo_log.appendChild(temp);
-
+    
 }
 
 async function deleteTodo(id){
