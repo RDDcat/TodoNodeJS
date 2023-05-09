@@ -101,6 +101,7 @@ async function setUp(data){
             })
             .then(response => response.json())
         });
+        
         trash_icon.addEventListener("click", (event) => {
             // 투두 휴지통 버튼
             const id = event.target.closest('.todo-list-btn').id;

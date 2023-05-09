@@ -89,6 +89,10 @@
     padding: 1.5rem;
 }
 
+.icon:hover{
+    background-color: #bdc6ce;
+    border-radius: 1.5rem;
+}
 
 
 .inp {
