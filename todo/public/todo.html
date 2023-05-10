@@ -50,7 +50,12 @@
                     TODO
                 </div>
                 <div class="user-icon">
-                    <img src="img/sample.jpg" class="user-icon-img">
+                    <img src="img/sample.jpg" class="user-icon-img" onclick="dp_menu()">
+                    <div class="dropdown">
+                        <div style="display: none;" id="drop-content">
+                            <a hreaf='#'>로그아웃</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>   
@@ -75,6 +80,18 @@
         </div>
     </div>
 </div>
+<script>
+    function dp_menu(){
+        let click = document.getElementById("drop-content");
+        if(click.style.display === "none"){
+            click.style.display = "inline";
+
+        }else{
+            click.style.display = "none";
+
+        }
+    }
+</script>
 <script type="text/javascript" src="js/todo.js"></script>
 
 </body>

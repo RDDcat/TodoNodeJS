@@ -11,6 +11,16 @@
     border-radius: 2rem;
 }
 
+.dropdown{
+    position: absolute;
+    top: 8.5rem; 
+    right: 0; 
+    text-align: end;
+    width: 24rem;
+    height: auto;
+    font-size: 2rem;
+}
+
 .todo-list{
     display: flex;
     flex-direction: column;    
