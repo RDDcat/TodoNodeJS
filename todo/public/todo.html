@@ -5,43 +5,18 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/nav.css" rel="stylesheet">
     <link href="./css/todo.css" rel="stylesheet">
 
     <!-- icon --> 
     <script src="https://kit.fontawesome.com/5924c21c60.js" crossorigin="anonymous"></script>
-
+          
     <script type="text/javascript" src="js/nav.js"></script>        
 </head>
 <body>
 <div class="row">
     <div class="col-2 text-center">
-        <div class="nav">
-            <div class="logo" style="width: 64px; height: 64px;">
-                <img src="">
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navTodo();">
-                    To do
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navMemo();">
-                    메모
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navBoard();">
-                    스티커 보드
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navAbout();">
-                    about
-                </div>
-            </div>
-        </div>
-    </div>
+        <div include-html="view/nav.html"></div>   
+    </div> 
     <!-- 본문 -->
     <div class="col-10 ">
         <div class="content">
@@ -93,5 +68,5 @@
     }
 </script>
 <script type="text/javascript" src="js/todo.js"></script>
-
+<script type="text/javascript" src="js/include.js"></script>  
 </body>
