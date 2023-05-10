@@ -7,8 +7,13 @@
     <link href="./css/index.css" rel="stylesheet">
     <link href="./css/todo.css" rel="stylesheet">
 
+    <!-- 유저 아이콘 -->
+    <link href="./css/user-icon.css" rel="stylesheet">   
+    <script type="text/javascript" src="js/user-icon.js"></script>  
+
     <!-- icon --> 
-    <script src="https://kit.fontawesome.com/5924c21c60.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/5924c21c60.js" crossorigin="anonymous"></script>       
+    <script type="text/javascript" src="js/nav.js"></script>
 </head>
 <body>
 <div class="row">
@@ -22,7 +27,7 @@
                 <div>
                     TODO
                 </div>
-                
+                <div class="user-icon" include-html="view/user-icon.html"></div>
             </div>
             <hr>   
             <div class="content-body">
@@ -46,18 +51,7 @@
         </div>
     </div>
 </div>
-<script>
-    function dp_menu(){
-        let click = document.getElementById("drop-content");
-        if(click.style.display === "none"){
-            click.style.display = "inline";
 
-        }else{
-            click.style.display = "none";
-
-        }
-    }
-</script>
 <script type="text/javascript" src="js/todo.js"></script>
 <script type="text/javascript" src="js/include.js"></script>  
 </body>
