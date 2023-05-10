@@ -16,32 +16,8 @@
 <body>
 <div class="row">
     <div class="col-2 text-center">
-        <div class="nav">
-            <div class="logo" style="width: 64px; height: 64px;">
-                <img src="">
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navTodo();">
-                    To do
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navMemo();">
-                    메모
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navBoard();">
-                    스티커 보드
-                </div>
-            </div>
-            <div class="nav-card">
-                <div class="fw-bold" onclick="navAbout();">
-                    about
-                </div>
-            </div>
-        </div>
-    </div>
+        <div include-html="view/nav.html"></div>   
+    </div> 
     <!-- 본문 -->
     <div class="col-10">
         <div class="content">
@@ -119,4 +95,6 @@
 
 
 </script>
+
+<script type="text/javascript" src="js/include.js"></script>  
 </body>
