@@ -1,15 +1,6 @@
 .content-title{
     display: flex;
 }
-.content-title .user-icon{
-    margin-left: auto;
-}
-.content-title .user-icon-img{
-    margin-right: 0.75rem;
-    width: 4rem;
-    height: 4rem;    
-    border-radius: 2rem;
-}
 
 .dropdown{
     position: absolute;

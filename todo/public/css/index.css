@@ -13,8 +13,9 @@ html{
     font-family: 'Black Han Sans', sans-serif;
     font-size: 3.75rem;
     margin-bottom: 0.25rem;
-
+    display: flex;
 }
+
 .content-body{
     display: flex;
     flex-direction: column;
