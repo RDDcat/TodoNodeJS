@@ -30,8 +30,9 @@ async function getJSONData(url) {
 async function setUpHistory(history_data){
     // 히스토리 셋업
     for(var i =0; i < history_data.length; i++){
+        console.log(history_data[i]);
         var my_var =   '<div class="todo-log-content">'+
-                        '    히스토리 박스 js'+
+                            history_data[i].content +
                         '</div>'+
                         '<div class="todo-log-btn">'+
                         '    <i class="icon fa-solid fa-trash-can"></i>'+
