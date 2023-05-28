@@ -86,7 +86,6 @@ function updateBoard(e){
     console.log("updateBoard : ", modal_body.value);
 
     // 데이터 가져옴
-
     modal_input_title.value= modal_title.innerHTML;
     modal_input_body.value= modal_body.innerHTML;
 
