@@ -22,7 +22,7 @@ async function setUpBoard(){
 }
 
 async function getJSONData() {
-    const response = await fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewCashBoard");
+    const response = await fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/cashBoards/user/"+getCookie("user"));
     const jsonData = await response.json();
     return jsonData;
 }
@@ -58,9 +58,9 @@ async function showMemo(item){
     console.log("item : " + item.id); 
 
     // 데이터 가져옴
-    var url = new URL('http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/detailBoard');
-    var params = { id: item.id };
-    url.search = new URLSearchParams(params).toString();
+    var url = new URL('http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/board/'+ item.id +'/user/'+ getCookie("user"));
+    // var params = { id: item.id };
+    // url.search = new URLSearchParams(params).toString();
 
     var responseDetail;
     await fetch(url)

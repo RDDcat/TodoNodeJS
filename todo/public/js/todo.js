@@ -7,8 +7,8 @@ async function setUpTodoList(){
     console.log("setUpTodoList 중");
 
     // JSON 데이터 서버에서 가져옴
-    var data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewTodo");
-    var history_data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewFinishTodo");
+    var data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todo/list/"+getCookie("user"));
+    var history_data = await getJSONData("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodo/list/"+getCookie("user"));
 
     // 가져온 데이터로 형식에 맞추어 todo_list 밑에 붙여넣음
     await setUp(data);
@@ -49,13 +49,15 @@ async function setUpHistory(history_data){
         trash_can.addEventListener("click", (event) => {
             const id = event.target.closest('.todo-log-box').id;
             console.log("trash bin clicked : ", id);            
-            var data = {id: id};
+            var data = {id: id,
+                        userId: getCookie("user")
+            };
 
-            fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodoDelete", {
+            fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodo", {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                method: "POST",
+                method: "DELETE",
                 body: JSON.stringify(data)
             })
             .then(response => response.json())
@@ -154,7 +156,10 @@ async function setUp(data){
         temp.innerHTML = my_var;
         todo_list.appendChild(temp);
 
-        var data = {content: inpText.value };
+        var data = {
+            userId: getCookie('user'),
+            content: inpText.value 
+        };
 
         fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todo", {
             headers: {
@@ -178,15 +183,18 @@ async function setUp(data){
 }
 
 async function deleteTodo(id){
-    var data = {id: id};
+    var data = {
+        id: id,
+        userId: getCookie('user')
+    };
 
     console.log(data);
 
-    fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todoDelete", {
+    fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/todo", {
         headers: {
             "Content-Type": "application/json"
         },
-        method: "POST",
+        method: "DELETE",
         body: JSON.stringify(data)
     })
     .then(response => response.json())
@@ -259,7 +267,7 @@ function setCookie(cookie_name, value, days) {
 function getCookie(cookie_name) {
     var x, y;
     var val = document.cookie.split(';');
-  
+
     for (var i = 0; i < val.length; i++) {
         x = val[i].substr(0, val[i].indexOf('='));
         y = val[i].substr(val[i].indexOf('=') + 1);
