@@ -5,6 +5,8 @@ const modal_overlay = document.querySelector(".modal-overlay");
 const modal_title = document.querySelector(".modal-title");
 const modal_body = document.querySelector(".modal-body");
 
+const modal_input_title = document.querySelector(".modal-input-title");
+const modal_input_body = document.querySelector(".modal-input-body");
 
 async function setUpBoard(){
     console.log("setUpBoard 시작");
@@ -81,10 +83,16 @@ setUpBoard();
 
 
 function updateBoard(e){
-    console.log("updateBoard");
+    console.log("updateBoard : ", modal_body.value);
+
+    // 데이터 가져옴
+    modal_input_title.value= modal_title.innerHTML;
+    modal_input_body.value= modal_body.innerHTML;
+
     modal_update.classList.remove("hidden");
     modal_memo.classList.add("hidden");
 }
+
 function submitUpdate(e){
     console.log("submitUpdate");
     // modal_title.innerHTML = document.getElementById('myText').value;

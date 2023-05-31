@@ -30,8 +30,9 @@ async function getJSONData(url) {
 async function setUpHistory(history_data){
     // 히스토리 셋업
     for(var i =0; i < history_data.length; i++){
+        console.log(history_data[i]);
         var my_var =   '<div class="todo-log-content">'+
-                        '    히스토리 박스 js'+
+                            history_data[i].content +
                         '</div>'+
                         '<div class="todo-log-btn">'+
                         '    <i class="icon fa-solid fa-trash-can"></i>'+
@@ -90,7 +91,10 @@ async function setUp(data){
             // 투두 체크 버튼
             console.log("check clicked : ", event.target.closest('.todo-list-btn').id);
 
-            var data = {id: event.target.closest('.todo-list-btn').id};
+            var data = {
+                id: event.target.closest('.todo-list-btn').id,
+                userId: getCookie('user')
+                };
             console.log("data clicked : ", data);
             fetch("http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/finishTodo", {
                 headers: {
@@ -238,5 +242,36 @@ function makeDroppable(element) {
     });
     
 }
+
+
+
+
+// 내가 만든 쿠키~ 
+function setCookie(cookie_name, value, days) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + days);  
+    var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+    document.cookie = cookie_name + '=' + cookie_value;
+}
+
+// setCookie('user', '1234', 1);
+
+function getCookie(cookie_name) {
+    var x, y;
+    var val = document.cookie.split(';');
+  
+    for (var i = 0; i < val.length; i++) {
+        x = val[i].substr(0, val[i].indexOf('='));
+        y = val[i].substr(val[i].indexOf('=') + 1);
+        x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+        if (x == cookie_name) {
+            return unescape(y); // unescape로 디코딩 후 값 리턴
+        }
+    }
+}
+
+
+
+
 
 
