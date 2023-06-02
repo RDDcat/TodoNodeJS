@@ -1,5 +1,7 @@
 const todo_log = document.querySelector(".todo-log");
 const todo_list = document.querySelector(".todo-list");
+const todo_input = document.querySelector(".todo-input");
+
 let todoListBoxes;
 
 setUpTodoList();
@@ -41,7 +43,7 @@ async function setUpHistory(history_data){
         temp.className = "todo-log-box";    
         temp.innerHTML = my_var;
         temp.draggable = true;
-        temp.id = history_data[i].id
+        temp.id = history_data[i].id;
         todo_log.appendChild(temp);
 
         // 히스토리 휴지통 버튼
@@ -133,7 +135,7 @@ async function setUp(data){
     temp.className = "todo-list-add-box";
     temp.draggable = true;
     temp.innerHTML = my_var;
-    todo_list.appendChild(temp);
+    todo_input.appendChild(temp);
 
     const plus_icon = temp.querySelector('.fa-plus');
     const inpText = document.getElementById('inp');

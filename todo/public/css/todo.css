@@ -12,10 +12,15 @@
     font-size: 2rem;
 }
 
-.todo-list{
+.todo-lists{
     display: flex;
     flex-direction: column;    
     min-height: 42%;
+}
+
+.todo-list{
+    display: flex;
+    flex-direction: column;  
 }
 
 .todo-list .todo-list-box{    
@@ -34,9 +39,9 @@
     padding: 1.5rem;
 }
 
-.todo-list .todo-list-add-box{
+.todo-list-add-box{
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     flex-basis: 5rem;
     background-color: rgb(230, 238, 253);
     width: 100%;
@@ -46,7 +51,7 @@
 
 }
 
-.todo-list .todo-list-add-box .todo-list-content{
+.todo-list-add-box .todo-list-content{
     width: 94%;
     padding-left: 1.5rem;
 }
