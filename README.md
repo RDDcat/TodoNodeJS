@@ -17,6 +17,11 @@ Java-Spring을 이용한 백엔드 개발만을 진행하다가 우연히 인턴
 
 
 ## 백엔드
+[백엔드 깃허브](https://github.com/seeungmin/TodoSpringBack)
+
+백엔드는 Java-Spring Boot 프로젝트로 구성되어있습니다.
+
+자세한 내용은 백엔드 Readme 파일을 확인해주세요 :)
 
 
 ## 구현
